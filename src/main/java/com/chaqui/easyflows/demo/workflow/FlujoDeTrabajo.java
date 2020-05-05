@@ -2,7 +2,6 @@ package com.chaqui.easyflows.demo.workflow;
 
 import org.jeasy.flows.workflow.SequentialFlow;
 import org.jeasy.flows.workflow.WorkFlow;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import static org.jeasy.flows.workflow.SequentialFlow.Builder.aNewSequentialFlow;
@@ -70,15 +69,13 @@ public class FlujoDeTrabajo  {
             .then(revisarCreacionFlow)
             .build();
 
-        ConditionalFlow maquetaAplica =  aNewConditionalFlow()
+        return aNewConditionalFlow()
                         .named("flujo para revisar estado de la maqueta")
                         .execute(revisarExistentes)
                         .when(WorkReportPredicate.ALWAYS_FALSE)
                         .then(crearMaquetaFlow)
                         .otherwise(clonarMaquetaFlow)
                         .build();
-
-        return maquetaAplica;
 
 
     }

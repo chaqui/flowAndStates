@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "estados")
+@Table(name = "Estados")
 @Data
 public  class Estado {
     
@@ -21,5 +21,7 @@ public  class Estado {
     @Column(name="nombre")
     private String nombre; 
 
-    
+    //variable para ingresar el tipo de asignacion: aleatorio o por minimos
+    @Column(name="tipoAsignacion")
+    private String tipoAsignacion;
 }
